@@ -1,7 +1,3 @@
-CREATE DATABASE db_lacandazo;
-
-USE db_lacandazo;
-
 CREATE TABLE TB_PET_LACANDAZO (
     Pet_No INT(3) PRIMARY KEY,
     Pet_Name VARCHAR(20) NOT NULL,
