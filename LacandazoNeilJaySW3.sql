@@ -1,0 +1,145 @@
+CREATE DATABASE db_lacandazo;
+
+USE db_lacandazo;
+
+CREATE TABLE TB_PET_LACANDAZO (
+    Pet_No INT(3) PRIMARY KEY,
+    Pet_Name VARCHAR(20) NOT NULL,
+    Species VARCHAR(20) NOT NULL,
+    Sex CHAR(1),
+    Owner VARCHAR(20),
+    Birth DATE,
+    Death DATE
+);
+
+INSERT INTO TB_PET_LACANDAZO
+VALUES (001, 'myrtle', 'snake', 'f', 'ralph', '2000-07-13', '2009-08-20');
+INSERT INTO TB_PET_LACANDAZO
+VALUES (002, 'bantay', 'dog', 'm', 'ramon', '2001-09-13', null);
+INSERT INTO TB_PET_LACANDAZO
+VALUES (003, 'birdie', 'bird', 'f', 'sherry', null, null);
+INSERT INTO TB_PET_LACANDAZO
+VALUES (004, 'lorie', 'cat', 'f', 'annie', '2001-02-14', null);
+INSERT INTO TB_PET_LACANDAZO
+VALUES (005, 'mitzi', 'cat', 'm', 'rain', null, '2000-09-15');        
+INSERT INTO TB_PET_LACANDAZO
+VALUES (006, 'bowow','dog', null, 'martin', '2005-02-14', null);      
+INSERT INTO TB_PET_LACANDAZO
+VALUES (007, 'sizzy', 'dog', 'm', null, null, '2005-01-30');
+INSERT INTO TB_PET_LACANDAZO
+VALUES (008, 'kahol', 'dog', 'm', 'isabel', '1998-01-15', null);
+INSERT INTO TB_PET_LACANDAZO
+VALUES (009, 'chloe', 'bird', 'f', 'mark', '2000-12-20', '2005-08-25');
+INSERT INTO TB_PET_LACANDAZO
+VALUES (010, 'spenkoy', 'cat', 'f', 'ressie', '2001-02-02', null);
+INSERT INTO TB_PET_LACANDAZO
+VALUES (011, 'aeky', 'snake', 'm', 'rammil', '2002-01-30', '2008-09-10');
+INSERT INTO TB_PET_LACANDAZO
+VALUES (012, 'rocky', 'bird', 'm', 'sly', null, null);
+
+-- 4
+SELECT * 
+FROM TB_PET_LACANDAZO;
+
+-- 5
+UPDATE TB_PET_LACANDAZO
+SET Death = '2005-08-19'
+WHERE Pet_No = 002;
+
+-- 6
+UPDATE TB_PET_LACANDAZO
+SET Death = '1995-07-26'
+WHERE Pet_No = 005;
+ 
+-- 7
+UPDATE TB_PET_LACANDAZO
+SET Owner = 'REXY'
+WHERE Pet_No = 010;
+
+-- 8
+UPDATE TB_PET_LACANDAZO
+SET Pet_Name = 'rocket'
+WHERE Pet_No = 008;
+
+-- 9
+UPDATE TB_PET_LACANDAZO
+SET Sex = 'F'
+WHERE Pet_No = 002;
+
+-- 10
+DELETE FROM TB_PET_LACANDAZO 
+WHERE Pet_No = 012;
+
+-- 11
+ALTER TABLE TB_PET_LACANDAZO
+ADD Age INT(2);
+
+-- 12
+UPDATE TB_PET_LACANDAZO
+SET Age = 9    
+WHERE Pet_No = 001;
+
+UPDATE TB_PET_LACANDAZO
+SET Age = 6    
+WHERE Pet_No = 011;
+
+UPDATE TB_PET_LACANDAZO
+SET Age = 4    
+WHERE Pet_No = 002;
+   
+UPDATE TB_PET_LACANDAZO
+SET Age = 4    
+WHERE Pet_No = 009;
+
+-- 12
+SELECT Pet_No, Pet_Name 
+FROM TB_PET_LACANDAZO
+ORDER BY Pet_Name;
+
+-- 13
+SELECT Pet_Name, Species
+FROM TB_PET_LACANDAZO
+WHERE Birth > '2002-01-01';
+
+-- 14
+SELECT Pet_Name, Species, Sex
+FROM TB_PET_LACANDAZO    
+WHERE Death <= '2005-01-30';
+
+-- 15
+SELECT * FROM TB_PET_LACANDAZO
+WHERE Species = 'dog' AND Sex = 'm'
+ORDER BY Pet_Name DESC;
+
+-- 16
+SELECT DISTINCT Species
+FROM TB_PET_LACANDAZO 
+ORDER BY Species;
+
+-- 17
+SELECT * FROM TB_PET_LACANDAZO
+WHERE Species IN('bird', 'cat')
+ORDER BY Pet_Name;
+
+SELECT * FROM TB_PET_LACANDAZO
+WHERE Species = 'bird' OR Species = 'cat'
+ORDER BY Pet_Name;
+
+-- 18
+SELECT Pet_No, Pet_Name, Age
+FROM TB_PET_LACANDAZO
+WHERE Age > 5 AND Age < 9;
+
+SELECT Pet_No, Pet_Name, Age
+FROM TB_PET_LACANDAZO
+WHERE Age BETWEEN 5 AND 9;
+
+-- 19
+SELECT * FROM TB_PET_LACANDAZO
+WHERE Birth IS NULL
+ORDER BY Pet_Name;
+
+-- 20
+SELECT * FROM TB_PET_LACANDAZO
+WHERE Birth IS NOT NULL
+ORDER BY Pet_Name;
