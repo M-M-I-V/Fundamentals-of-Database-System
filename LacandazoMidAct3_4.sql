@@ -1,0 +1,49 @@
+-- 1
+SELECT Pet_Name, Birth
+FROM TB_PET_LACANDAZO
+WHERE Birth > '2000-02-04';
+
+-- 2
+SELECT Pet_Name, Birth
+FROM TB_PET_LACANDAZO
+WHERE Birth <= '2000-12-31';
+
+-- 3
+SELECT Pet_Name, Death
+FROM TB_PET_LACANDAZO
+WHERE Death <= '2005-01-30';
+
+-- 4
+SELECT Pet_No, Pet_Name, Sex
+FROM TB_PET_LACANDAZO
+WHERE Age <= 5;
+
+-- 5
+SELECT Pet_No, Pet_Name, Sex, Owner 
+FROM TB_PET_LACANDAZO
+WHERE Age >= 9;
+
+-- 6
+SELECT Pet_No, Pet_Name, Sex, Owner 
+FROM TB_PET_LACANDAZO
+WHERE Age BETWEEN 5 AND 9;
+
+-- 7
+SELECT Pet_No, Pet_Name, Sex, Owner, Age 
+FROM TB_PET_LACANDAZO
+WHERE Age IN(7, 10);
+
+-- 8 
+SELECT Pet_Name, Sex, Owner, Age 
+FROM TB_PET_LACANDAZO
+WHERE Sex = 'f'
+    AND Age > 5;
+
+-- 9
+SELECT DISTINCT Owner
+FROM TB_PET_LACANDAZO;
+
+-- 10
+SELECT Pet_Name, Owner
+FROM TB_PET_LACANDAZO
+ORDER BY Owner DESC, Pet_Name;
